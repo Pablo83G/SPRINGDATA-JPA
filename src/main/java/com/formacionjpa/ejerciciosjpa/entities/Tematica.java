@@ -47,4 +47,6 @@ public class Tematica {
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
+
+
 }
