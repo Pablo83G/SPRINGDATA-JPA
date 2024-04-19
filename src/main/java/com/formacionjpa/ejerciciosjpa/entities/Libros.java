@@ -32,6 +32,19 @@ public class Libros {
     )
     private LocalDate anhoPublicacion;
 
+    // CLAVE FORÁNEA
+    @ManyToOne
+    @JoinColumn(name = "id_autor")
+    private Autores autores;
+
+    @ManyToOne
+    @JoinColumn(name = "id_editorial")
+    private Editoriales editoriales;
+
+    @ManyToOne
+    @JoinColumn(name = "id_tematica")
+    private Tematica tematica;
+
     // CONSTRUCTORES
     public Libros() {}
 

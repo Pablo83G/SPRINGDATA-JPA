@@ -3,6 +3,8 @@ package com.formacionjpa.ejerciciosjpa.entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity(name = "editoriales")
 @Table(name = "editoriales")
 public class Editoriales {
@@ -30,6 +32,10 @@ public class Editoriales {
             columnDefinition = "TEXT"
     )
     private String razonSocial;
+
+    // CLAVE FORÁNEA
+    @OneToMany(mappedBy = "editoriales")
+    private List<Libros> libros;
 
     // CONSTRUCTORES
     public Editoriales() {}

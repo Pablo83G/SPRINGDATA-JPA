@@ -2,6 +2,8 @@ package com.formacionjpa.ejerciciosjpa.entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity(name = "tematica")
 @Table(name = "tematica")
 public class Tematica {
@@ -23,6 +25,10 @@ public class Tematica {
             columnDefinition = "TEXT"
     )
     private String categoria;
+
+    // CLAVE FORÁNEA
+    @OneToMany(mappedBy = "tematica")
+    private List<Libros> libros;
 
     // CONSTRUCTORES
     public Tematica() {}

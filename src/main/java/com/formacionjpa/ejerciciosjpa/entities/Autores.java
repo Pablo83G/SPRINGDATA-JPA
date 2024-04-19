@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 @Entity(name = "autores")
 @Table(name = "autores")
@@ -40,6 +41,10 @@ public class Autores {
             columnDefinition = "DATE"
     )
     private LocalDate fechaNacimiento;
+
+    // CLAVE FORÁNEA
+    @OneToMany(mappedBy = "autores")
+    private List<Libros> libros;
 
     // CONSTRUCTORES
     public Autores() {
