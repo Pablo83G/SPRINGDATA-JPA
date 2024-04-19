@@ -12,11 +12,11 @@ public class Libros {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(
-            name = "ISBM",
+            name = "ISBN",
             updatable = false,
             nullable = false
     )
-    private Long isbm;
+    private Long isbn;
 
     @Column(
             name = "titulo",
@@ -28,9 +28,9 @@ public class Libros {
     @Column(
             name = "anho_publicacion",
             nullable = false,
-            columnDefinition = "DATE"
+            columnDefinition = "TEXT"
     )
-    private LocalDate anhoPublicacion;
+    private String anhoPublicacion;
 
     // CLAVE FORÁNEA
     @ManyToOne
@@ -48,18 +48,27 @@ public class Libros {
     // CONSTRUCTORES
     public Libros() {}
 
-    public Libros(String titulo, LocalDate anhoPublicacion) {
+    public Libros(String titulo, String anhoPublicacion) {
         this.titulo = titulo;
         this.anhoPublicacion = anhoPublicacion;
     }
 
-    // GETTER AND SETTER
-    public Long getIsbm() {
-        return isbm;
+    public Libros(Long isbn, String titulo, String anhoPublicacion, Autores autores, Editoriales editoriales, Tematica tematica) {
+        this.isbn = isbn;
+        this.titulo = titulo;
+        this.anhoPublicacion = anhoPublicacion;
+        this.autores = autores;
+        this.editoriales = editoriales;
+        this.tematica = tematica;
     }
 
-    public void setIsbm(Long isbm) {
-        this.isbm = isbm;
+    // GETTER AND SETTER
+    public Long getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(Long isbn) {
+        this.isbn = isbn;
     }
 
     public String getTitulo() {
@@ -70,11 +79,35 @@ public class Libros {
         this.titulo = titulo;
     }
 
-    public LocalDate getAnhoPublicacion() {
+    public String getAnhoPublicacion() {
         return anhoPublicacion;
     }
 
-    public void setAnhoPublicacion(LocalDate anhoPublicacion) {
+    public void setAnhoPublicacion(String anhoPublicacion) {
         this.anhoPublicacion = anhoPublicacion;
+    }
+
+    public Autores getAutores() {
+        return autores;
+    }
+
+    public void setAutores(Autores autores) {
+        this.autores = autores;
+    }
+
+    public Editoriales getEditoriales() {
+        return editoriales;
+    }
+
+    public void setEditoriales(Editoriales editoriales) {
+        this.editoriales = editoriales;
+    }
+
+    public Tematica getTematica() {
+        return tematica;
+    }
+
+    public void setTematica(Tematica tematica) {
+        this.tematica = tematica;
     }
 }
