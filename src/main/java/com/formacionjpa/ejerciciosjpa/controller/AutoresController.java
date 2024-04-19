@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/autores")//http://localhost:8080/autoresç
+@RequestMapping("/autores")//http://localhost:8080/autores
 // ("/autores") esto es un valor fijo, los variables se ponen entre corchetes{}
 public class AutoresController {
 

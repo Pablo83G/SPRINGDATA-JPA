@@ -3,10 +3,7 @@ package com.formacionjpa.ejerciciosjpa.controller;
 import com.formacionjpa.ejerciciosjpa.entities.Tematica;
 import com.formacionjpa.ejerciciosjpa.services.TematicaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,7 +15,7 @@ public class TematicaController {
     TematicaService tematicaService;
 
     @PostMapping
-    public Tematica addTematica(Tematica tematica){
+    public Tematica addTematica(@RequestBody Tematica tematica){
         return tematicaService.addTematica(tematica);
     }
 
