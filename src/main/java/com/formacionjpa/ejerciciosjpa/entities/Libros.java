@@ -10,7 +10,7 @@ public class Libros {
 
     // ATRIBUTOS
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(
             name = "ISBM",
             updatable = false,

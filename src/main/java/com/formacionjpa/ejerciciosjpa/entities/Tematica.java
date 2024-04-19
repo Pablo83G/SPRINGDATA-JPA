@@ -10,7 +10,7 @@ public class Tematica {
 
     // ATRIBUTOS
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(
             name = "id_tematica",
             updatable = false,
