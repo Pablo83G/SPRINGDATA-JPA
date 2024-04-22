@@ -1,5 +1,6 @@
 package com.formacionjpa.ejerciciosjpa.repositories;
 
+import com.formacionjpa.ejerciciosjpa.entities.Editoriales;
 import com.formacionjpa.ejerciciosjpa.entities.Libros;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -28,6 +29,15 @@ public interface ILibrosRepositorio extends JpaRepository<Libros, Long> {
     //EJERCICIO 6
     // Mostrar libros publicados en el año 2001
     List<Libros> findByAnhoPublicacionEquals(Long anhoPublicacion);
+
+    // Mostrar el libro cuyo ISBN es el 16.
+    List<Libros> findByIsbnEquals(Long isbn);
+
+    //Mostrar los libros de la editorial RBA.
+    List<Libros> findByEditoriales(Editoriales editoriales);
+
+   // Mostrar los libros de la editorial PLANETA publicados en 1986
+    List<Libros> findByEditorialesAndAnhoPublicacion (Editoriales editoriales, Long anhoPublicacion);
 
 
 

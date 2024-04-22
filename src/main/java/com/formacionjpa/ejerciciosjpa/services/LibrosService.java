@@ -1,5 +1,6 @@
 package com.formacionjpa.ejerciciosjpa.services;
 
+import com.formacionjpa.ejerciciosjpa.entities.Editoriales;
 import com.formacionjpa.ejerciciosjpa.entities.Libros;
 import com.formacionjpa.ejerciciosjpa.repositories.ILibrosRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,8 +39,24 @@ public class LibrosService {
         return iLibrosRepositorio.findByAnhoPublicacionGreaterThan(anhoPublicacion);
     }
 
-    public List<Libros> getbyAnhoPublicacionEquals (Long anhoPublicacion){
+    //EJERCICIO 6
+    // Mostrar libros publicados en el año 2001
+    public List<Libros> getByAnhoPublicacionEquals(Long anhoPublicacion){
         return iLibrosRepositorio.findByAnhoPublicacionEquals(anhoPublicacion);
     }
 
+    // Mostrar el libro cuyo ISBN es el 16.
+    public List<Libros> getByIsbnEquals(Long isbn){
+        return iLibrosRepositorio.findByIsbnEquals(isbn);
+    }
+
+    //Mostrar los libros de la editorial RBA.
+    public List<Libros> getByEditoriales(Editoriales editoriales){
+        return iLibrosRepositorio.findByEditoriales(editoriales);
+    }
+
+    // Mostrar los libros de la editorial PLANETA publicados en 1986
+    public List<Libros> getByEditorialesAndAnhoPublicacion(Editoriales editoriales, Long anhoPublicacion){
+        return iLibrosRepositorio.findByEditorialesAndAnhoPublicacion(editoriales, anhoPublicacion);
+    }
 }
