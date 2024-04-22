@@ -28,10 +28,14 @@ public class LibrosController {
 
     @GetMapping(path="/queries")
     //RequestParam indicar los datos de la consulta por parámetro en url (/queries?anhoPublicacion=2001)
-    public List<Libros> getByAnhoPublicacionAntesDe(@RequestParam String anhoPublicacion){
-        return  librosService.getByAnhoPublicacionAntesDe(anhoPublicacion);
+    public List<Libros> getByAnhoPublicacionGreaterThan(@RequestParam Long anhoPublicacion){
+        return  librosService.getByAnhoPublicacionGreaterThan(anhoPublicacion);
     }
 
-
+   @GetMapping(path="/ejercicio6.1")
+    //RequestParam indicar los datos de la consulta por parámetro en url (/queries?anhoPublicacion=2001)
+    public List<Libros> getbyAnhoPublicacionEquals(@RequestParam Long anhoPublicacion){
+        return  librosService.getbyAnhoPublicacionEquals(anhoPublicacion);
+    }
 
 }
