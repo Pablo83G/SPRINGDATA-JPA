@@ -2,8 +2,6 @@ package com.formacionjpa.ejerciciosjpa.entities;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
-
 @Entity(name = "libros")
 @Table(name = "libros")
 public class Libros {
@@ -28,9 +26,9 @@ public class Libros {
     @Column(
             name = "anho_publicacion",
             nullable = false,
-            columnDefinition = "TEXT"
+            columnDefinition = "BIGINT"
     )
-    private String anhoPublicacion;
+    private Long anhoPublicacion;
 
     // CLAVE FORÁNEA
     @ManyToOne
@@ -48,12 +46,12 @@ public class Libros {
     // CONSTRUCTORES
     public Libros() {}
 
-    public Libros(String titulo, String anhoPublicacion) {
+    public Libros(String titulo, Long anhoPublicacion) {
         this.titulo = titulo;
         this.anhoPublicacion = anhoPublicacion;
     }
 
-    public Libros(Long isbn, String titulo, String anhoPublicacion, Autores autores, Editoriales editoriales, Tematica tematica) {
+    public Libros(Long isbn, String titulo, Long anhoPublicacion, Autores autores, Editoriales editoriales, Tematica tematica) {
         this.isbn = isbn;
         this.titulo = titulo;
         this.anhoPublicacion = anhoPublicacion;
@@ -79,11 +77,11 @@ public class Libros {
         this.titulo = titulo;
     }
 
-    public String getAnhoPublicacion() {
+    public Long getAnhoPublicacion() {
         return anhoPublicacion;
     }
 
-    public void setAnhoPublicacion(String anhoPublicacion) {
+    public void setAnhoPublicacion(Long anhoPublicacion) {
         this.anhoPublicacion = anhoPublicacion;
     }
 

@@ -4,6 +4,7 @@ import com.formacionjpa.ejerciciosjpa.entities.Libros;
 import com.formacionjpa.ejerciciosjpa.repositories.IAutoresRepositorio;
 import com.formacionjpa.ejerciciosjpa.repositories.ILibrosRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,5 +30,11 @@ public class LibrosService {
     public List<Libros> getLibros(){
         return iLibrosRepositorio.findAll();
     }
+
+    //QUERIES
+    public List<Libros> getByAnhoPublicacionAntesDe (String anhoPublicacion){
+        return iLibrosRepositorio.findByAnhoPublicacionAntesDe(anhoPublicacion);
+    }
+
 
 }

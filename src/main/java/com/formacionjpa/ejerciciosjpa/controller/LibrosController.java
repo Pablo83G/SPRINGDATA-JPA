@@ -25,4 +25,13 @@ public class LibrosController {
         return librosService.getLibros();
     }
 
+
+    @GetMapping(path="/queries")
+    //RequestParam indicar los datos de la consulta por parámetro en url (/queries?anhoPublicacion=2001)
+    public List<Libros> getByAnhoPublicacionAntesDe(@RequestParam String anhoPublicacion){
+        return  librosService.getByAnhoPublicacionAntesDe(anhoPublicacion);
+    }
+
+
+
 }
